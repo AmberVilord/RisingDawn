@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>REPLICA: Choose Your Scent Path</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="theme-light">
+    <div class="page">
+      <header class="banner">
+        <div class="banner-inner">
+          <div class="logo">REPLICA</div>
+          <div class="banner-text">
+            <div class="banner-heading">Maison Margiela</div>
+            <div class="banner-subheading">P A R I S</div>
+          </div>
+          <nav class="nav">
+            <a href="index.html#story">Story</a>
+            <a href="index.html#ritual">Ritual</a>
+            <a href="#quiz">Scent Path</a>
+            <a href="index.html#notes">Notes</a>
+            <a href="index.html#product">Discover</a>
+          </nav>
+          <button class="theme-toggle" type="button" aria-label="Toggle theme">
+            <span class="toggle-label">Light</span>
+            <span class="toggle-dot" aria-hidden="true"></span>
+            <span class="toggle-label">Dark</span>
+          </button>
+        </div>
+      </header>
+
+      <main class="section" id="quiz">
+        <h1 class="section-title">Choose Your Scent Path</h1>
+        <p class="body" style="max-width: 42rem; margin: 0 auto 2rem; text-align: center;">
+          Follow your morning instinct and we will reveal the ritual that suits your first light.
+        </p>
+        <form class="quiz" aria-describedby="ritual-result">
+          <div class="quiz-option">
+            <input type="radio" id="meditation" name="morning" value="Meditation" />
+            <label for="meditation">Meditation</label>
+          </div>
+          <div class="quiz-option">
+            <input type="radio" id="journaling" name="morning" value="Journaling" />
+            <label for="journaling">Journaling</label>
+          </div>
+          <div class="quiz-option">
+            <input type="radio" id="movement" name="morning" value="Movement" />
+            <label for="movement">Movement</label>
+          </div>
+          <div class="quiz-option">
+            <input type="radio" id="meeting" name="morning" value="Big Meeting" />
+            <label for="meeting">Stepping into a Big Meeting</label>
+          </div>
+          <button class="quiz-btn" type="button">Reveal My Ritual</button>
+          <p class="quiz-result" id="ritual-result" aria-live="polite"></p>
+        </form>
+      </main>
+
+      <footer class="footer">
+        <div class="footer-text">Placeholder footer text</div>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

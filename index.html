@@ -6,8 +6,16 @@
     <title>REPLICA: Rising at Dawn</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body class="theme-light">
-    <div class="page">
+  <body class="theme-light intro-active">
+    <section class="intro" id="intro" aria-label="Introduction">
+      <div class="intro-content">
+        <p class="intro-eyebrow">Maison Margiela</p>
+        <h1 class="intro-title">A quiet moment before the world begins.</h1>
+        <p class="intro-subtitle">Every sunrise is a beginning—yours starts here.</p>
+        <button class="intro-cta" type="button" data-target="#story">Enter the ritual</button>
+      </div>
+    </section>
+    <div class="page" id="experience">
       <header class="banner">
         <div class="banner-inner">
           <div class="logo">REPLICA</div>
@@ -18,6 +26,7 @@
           <nav class="nav">
             <a href="#story">Story</a>
             <a href="#ritual">Ritual</a>
+            <a href="scent-path.html">Scent Path</a>
             <a href="#notes">Notes</a>
             <a href="#product">Discover</a>
           </nav>
@@ -52,7 +61,6 @@
             the warmth of sunlight finding skin. A fragrance inspired by becoming. By choosing yourself
             before the day asks anything of you.
           </p>
-          <a class="cta" href="#ritual">Enter the ritual.</a>
         </section>
       </main>
 
@@ -68,32 +76,8 @@
             opens with pear dew and bergamot, settles into lily stem and sun-warmed linen, and lingers
             with mineral amber. A quiet ceremony to begin again.
           </p>
-          <a class="cta" href="#quiz">Choose your scent path.</a>
+          <a class="cta" href="scent-path.html">Choose your scent path.</a>
         </div>
-      </section>
-
-      <section class="section reveal" id="quiz">
-        <h2 class="section-title">Choose Your Scent Path</h2>
-        <form class="quiz" aria-describedby="ritual-result">
-          <div class="quiz-option">
-            <input type="radio" id="meditation" name="morning" value="Meditation" />
-            <label for="meditation">Meditation</label>
-          </div>
-          <div class="quiz-option">
-            <input type="radio" id="journaling" name="morning" value="Journaling" />
-            <label for="journaling">Journaling</label>
-          </div>
-          <div class="quiz-option">
-            <input type="radio" id="movement" name="morning" value="Movement" />
-            <label for="movement">Movement</label>
-          </div>
-          <div class="quiz-option">
-            <input type="radio" id="meeting" name="morning" value="Big Meeting" />
-            <label for="meeting">Stepping into a Big Meeting</label>
-          </div>
-          <button class="quiz-btn" type="button">Reveal My Ritual</button>
-          <p class="quiz-result" id="ritual-result" aria-live="polite"></p>
-        </form>
       </section>
 
       <section class="notes" id="notes">

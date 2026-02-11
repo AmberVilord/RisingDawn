@@ -3,6 +3,7 @@ const body = document.body;
 const revealItems = document.querySelectorAll(".reveal");
 const quizButton = document.querySelector(".quiz-btn");
 const quizResult = document.querySelector(".quiz-result");
+const introButton = document.querySelector(".intro-cta");
 
 const setTheme = (theme) => {
   body.classList.remove("theme-light", "theme-dark");
@@ -13,6 +14,14 @@ toggle.addEventListener("click", () => {
   const isLight = body.classList.contains("theme-light");
   setTheme(isLight ? "theme-dark" : "theme-light");
 });
+
+if (introButton) {
+  introButton.addEventListener("click", () => {
+    body.classList.remove("intro-active");
+    body.classList.add("intro-dismissed");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
 
 const revealObserver = new IntersectionObserver(
   (entries) => {
