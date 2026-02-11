@@ -612,6 +612,7 @@ body.theme-dark .toggle-dot::after {
   border: 1px solid rgba(255, 255, 255, 0.18);
   padding: 3rem;
   backdrop-filter: blur(10px);
+  scroll-margin-top: 20vh;
 }
 
 .immersion .eyebrow,
@@ -1108,11 +1109,11 @@ body.theme-dark .toggle-dot::after {
 }
 
 .footer {
-  height: var(--footer-height);
+  min-height: var(--footer-height);
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  padding: 0 5vw;
+  justify-content: center;
+  padding: 1.5rem 5vw 2rem;
   border-top: 1px solid var(--panel-border);
   font-size: 0.75rem;
   letter-spacing: 0.15em;
@@ -1121,6 +1122,37 @@ body.theme-dark .toggle-dot::after {
 
 .footer-text {
   color: var(--text-muted);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.footer-copy {
+  max-width: 3in;
+  text-align: center;
+  margin: 0;
+}
+
+.footer-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-icon {
+  color: var(--text-muted);
+  width: 2rem;
+  height: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--panel-border);
+  border-radius: 999px;
+}
+
+.footer-icon svg {
+  width: 1rem;
+  height: 1rem;
 }
 
 @media (max-width: 900px) {

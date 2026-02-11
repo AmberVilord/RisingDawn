@@ -13,7 +13,7 @@ const bagItemsContainer = document.querySelector("#bag-items");
 const bagTotal = document.querySelector("#bag-total");
 
 const introSection = document.querySelector("#intro");
-if (introSection && window.location.hash === "#story") {
+if (introSection && window.location.hash) {
   body.classList.remove("intro-active");
   body.classList.add("intro-dismissed");
 }
