@@ -20,7 +20,7 @@
             <a href="index.html#story">Story</a>
             <a href="index.html#ritual">Ritual</a>
             <a href="scent-path.html">Scent Path</a>
-            <a href="index.html#notes">Notes</a>
+            <a href="index.html#product">Customize</a>
             <a href="shop.html">Discover</a>
             <a class="nav-bag" href="bag.html" aria-label="Shopping bag">
               <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
@@ -46,34 +46,13 @@
       <main class="section bag" id="bag">
         <h1 class="section-title">Shopping Bag</h1>
         <div class="bag-grid">
-          <div class="bag-items">
-            <article class="bag-item">
-              <div>
-                <h3>Rising at Dawn Perfume</h3>
-                <p>50 ml Eau de Toilette</p>
-              </div>
-              <div class="bag-item-meta">
-                <span class="bag-price">$160</span>
-                <button class="bag-remove" type="button">Remove</button>
-              </div>
-            </article>
-            <article class="bag-item">
-              <div>
-                <h3>Morning Dew Body Wash</h3>
-                <p>250 ml body wash</p>
-              </div>
-              <div class="bag-item-meta">
-                <span class="bag-price">$48</span>
-                <button class="bag-remove" type="button">Remove</button>
-              </div>
-            </article>
-          </div>
+          <div class="bag-items" id="bag-items" aria-live="polite"></div>
 
           <aside class="bag-summary">
             <h2>Checkout</h2>
             <div class="bag-total">
               <span>Total</span>
-              <span>$208</span>
+              <span id="bag-total">$0</span>
             </div>
             <form class="checkout-form">
               <label for="email">Email</label>

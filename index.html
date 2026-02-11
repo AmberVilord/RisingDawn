@@ -28,7 +28,7 @@
             <a href="#story">Story</a>
             <a href="#ritual">Ritual</a>
             <a href="scent-path.html">Scent Path</a>
-            <a href="#notes">Notes</a>
+            <a href="#product">Customize</a>
             <a href="shop.html">Discover</a>
             <a class="nav-bag" href="bag.html" aria-label="Shopping bag">
               <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
@@ -185,9 +185,26 @@
           </div>
           <div class="product-actions">
             <img src="perfume-placeholder.png" alt="Rising at Dawn perfume" />
-            <input type="text" placeholder="Engrave your name or phrase" />
+            <input
+              class="engraving-input"
+              type="text"
+              placeholder="Engrave your name or phrase"
+              maxlength="20"
+              aria-describedby="engraving-count"
+            />
+            <div class="engraving-count" id="engraving-count">0/20</div>
             <div class="product-actions-buttons">
-              <button class="quiz-btn" type="button">Add to Cart</button>
+              <button
+                class="quiz-btn add-to-cart"
+                type="button"
+                data-product-id="rising-at-dawn-perfume"
+                data-product-name="Rising at Dawn Perfume"
+                data-base-price="160"
+                data-product-detail="Customizable Eau de Toilette"
+                data-use-engraving="true"
+              >
+                Add to Cart
+              </button>
               <a class="cta cta-secondary" href="scent-path.html">Design my ritual</a>
             </div>
           </div>

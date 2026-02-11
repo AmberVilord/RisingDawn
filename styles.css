@@ -8,6 +8,7 @@
   --side-gap: 2.5in;
   --content-max-width: calc(100% - (var(--side-gap) * 2));
   --transition: 220ms ease;
+  --ease-luxe: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 body {
@@ -17,7 +18,23 @@ body {
   background: var(--page-bg);
   color: var(--text-main);
   scroll-behavior: smooth;
+  animation: page-fade 700ms var(--ease-luxe);
   transition: background var(--transition), color var(--transition);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+section,
+main {
+  scroll-margin-top: calc(var(--banner-height) + 1.5rem);
+}
+
+a,
+button {
+  transition: color var(--transition), background var(--transition), border-color var(--transition),
+    transform 350ms var(--ease-luxe), box-shadow 350ms var(--ease-luxe);
 }
 
 body.intro-active {
@@ -319,7 +336,7 @@ body.theme-dark .toggle-dot::after {
 
 .philosophy-text {
   max-width: 52rem;
-  margin: 0;
+  margin: 0 auto;
   text-align: left;
   color: var(--text-main);
 }
@@ -340,6 +357,7 @@ body.theme-dark .toggle-dot::after {
   border: 1px solid rgba(217, 182, 113, 0.75);
   box-shadow: inset 0 0 0 1px rgba(255, 236, 194, 0.35), 0 12px 30px rgba(18, 16, 14, 0.08);
   background: rgba(222, 216, 209, 0.65);
+  text-align: left;
 }
 
 .eyebrow {
@@ -647,8 +665,8 @@ body.theme-dark .toggle-dot::after {
 
 .reveal {
   opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 800ms ease, transform 800ms ease;
+  transform: translateY(28px);
+  transition: opacity 900ms var(--ease-luxe), transform 900ms var(--ease-luxe);
 }
 
 .reveal.is-visible {
@@ -849,6 +867,24 @@ body.theme-dark .toggle-dot::after {
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--text-main);
+}
+
+.engraving-count {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.bag-empty {
+  padding: 2rem;
+  border: 1px solid var(--panel-border);
+  background: var(--panel-bg);
+  text-align: center;
+  color: var(--text-muted);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
 }
 
 .shop-grid {
@@ -1108,6 +1144,17 @@ body.theme-dark .toggle-dot::after {
 }
 
 @keyframes intro-fade {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes page-fade {
   0% {
     opacity: 0;
     transform: translateY(10px);

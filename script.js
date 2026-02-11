@@ -6,6 +6,11 @@ const quizResult = document.querySelector(".quiz-result");
 const introButton = document.querySelector(".intro-cta");
 const ritualPanelCopy = document.querySelector(".ritual-panel-copy");
 const ritualListItems = Array.from(document.querySelectorAll(".ritual-list li"));
+const engravingInput = document.querySelector(".engraving-input");
+const engravingCount = document.querySelector(".engraving-count");
+const addToCartButtons = Array.from(document.querySelectorAll(".add-to-cart"));
+const bagItemsContainer = document.querySelector("#bag-items");
+const bagTotal = document.querySelector("#bag-total");
 
 const setTheme = (theme) => {
   body.classList.remove("theme-light", "theme-dark");
@@ -38,6 +43,71 @@ const revealObserver = new IntersectionObserver(
 );
 
 revealItems.forEach((item) => revealObserver.observe(item));
+
+const CART_KEY = "risingDawnCart";
+
+const formatPrice = (value) => `$${value.toFixed(2).replace(/\.00$/, "")}`;
+
+const loadCart = () => {
+  const raw = window.localStorage.getItem(CART_KEY);
+  if (!raw) return [];
+  try {
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed) ? parsed : [];
+  } catch (error) {
+    return [];
+  }
+};
+
+const saveCart = (items) => {
+  window.localStorage.setItem(CART_KEY, JSON.stringify(items));
+};
+
+const renderBag = () => {
+  if (!bagItemsContainer || !bagTotal) return;
+  const items = loadCart();
+  bagItemsContainer.innerHTML = "";
+  if (!items.length) {
+    const empty = document.createElement("div");
+    empty.className = "bag-empty";
+    empty.textContent = "Your bag is empty";
+    bagItemsContainer.appendChild(empty);
+    bagTotal.textContent = formatPrice(0);
+    return;
+  }
+  let total = 0;
+  items.forEach((item, index) => {
+    total += item.price;
+    const row = document.createElement("article");
+    row.className = "bag-item";
+    row.innerHTML = `
+      <div>
+        <h3>${item.name}</h3>
+        <p>${item.detail}</p>
+      </div>
+      <div class="bag-item-meta">
+        <span class="bag-price">${formatPrice(item.price)}</span>
+        <button class="bag-remove" type="button" data-index="${index}">Remove</button>
+      </div>
+    `;
+    bagItemsContainer.appendChild(row);
+  });
+  bagTotal.textContent = formatPrice(total);
+};
+
+if (bagItemsContainer) {
+  bagItemsContainer.addEventListener("click", (event) => {
+    const target = event.target;
+    if (!(target instanceof HTMLElement)) return;
+    if (!target.classList.contains("bag-remove")) return;
+    const index = Number(target.dataset.index);
+    const items = loadCart();
+    if (Number.isNaN(index)) return;
+    items.splice(index, 1);
+    saveCart(items);
+    renderBag();
+  });
+}
 
 const ritualPlans = {
   Meditation: {
@@ -95,3 +165,42 @@ if (quizButton && quizResult) {
     });
   });
 }
+
+if (engravingInput && engravingCount) {
+  const updateCount = () => {
+    const count = engravingInput.value.length;
+    engravingCount.textContent = `${count}/20`;
+  };
+  updateCount();
+  engravingInput.addEventListener("input", updateCount);
+}
+
+if (addToCartButtons.length) {
+  addToCartButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const name = button.dataset.productName || "Rising at Dawn";
+      const basePrice = Number(button.dataset.basePrice || "0");
+      const useEngraving = button.dataset.useEngraving === "true";
+      const engraving = useEngraving && engravingInput ? engravingInput.value.trim() : "";
+      const engravingFee = engraving ? 35 : 0;
+      const detail = engraving
+        ? `Custom engraving: ${engraving}`
+        : button.dataset.productDetail || "Signature ritual set";
+      const item = {
+        id: button.dataset.productId || "custom-item",
+        name,
+        detail,
+        price: basePrice + engravingFee,
+      };
+      const items = loadCart();
+      items.push(item);
+      saveCart(items);
+      renderBag();
+      if (button.dataset.changeText) {
+        button.textContent = button.dataset.changeText;
+      }
+    });
+  });
+}
+
+renderBag();
