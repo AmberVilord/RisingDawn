@@ -12,13 +12,14 @@
         <div class="banner-inner">
           <div class="logo">REPLICA</div>
           <div class="banner-text">
-            <div class="banner-heading">Placeholder Heading</div>
-            <div class="banner-subheading">Placeholder Subheading</div>
+            <div class="banner-heading">Maison Margiela</div>
+            <div class="banner-subheading">P A R I S</div>
           </div>
           <nav class="nav">
             <a href="#story">Story</a>
+            <a href="#ritual">Ritual</a>
             <a href="#notes">Notes</a>
-            <a href="#discover">Discover</a>
+            <a href="#product">Discover</a>
           </nav>
           <button class="theme-toggle" type="button" aria-label="Toggle theme">
             <span class="toggle-label">Light</span>
@@ -28,12 +29,20 @@
         </div>
       </header>
 
-      <main class="hero">
+      <main class="hero" id="story">
         <div class="hero-image" aria-hidden="true"></div>
-        <section class="content" id="story">
+        <section class="content reveal">
           <p class="eyebrow">New Campaign Line</p>
           <h1 class="headline">Rising at Dawn</h1>
           <h2 class="subhead">Where the day begins, she begins.</h2>
+          <div class="product-shot" aria-label="Rising at Dawn bottle">
+            <img
+              src="https://i.pinimg.com/736x/77/9a/9a/779a9a49c7d98de668d756f46bff343b.jpg"
+              alt="Rising at Dawn fragrance bottle"
+              loading="lazy"
+            />
+            <span class="product-caption">The first light, captured.</span>
+          </div>
           <p class="body">
             There is a moment before the world stirs. Windows catch the first light. Streets hold their
             breath. This is the hour of quiet resolve.
@@ -43,12 +52,52 @@
             the warmth of sunlight finding skin. A fragrance inspired by becoming. By choosing yourself
             before the day asks anything of you.
           </p>
-          <a class="cta" id="discover" href="#notes">Discover the first light.</a>
+          <a class="cta" href="#ritual">Enter the ritual.</a>
         </section>
       </main>
 
+      <section class="immersion" id="ritual">
+        <video class="immersion-video" autoplay muted loop playsinline>
+          <source src="sunrise-video.mp4" type="video/mp4" />
+        </video>
+        <div class="immersion-content reveal">
+          <p class="eyebrow">Dawn Ritual</p>
+          <h2 class="section-title">The moment before the world</h2>
+          <p class="body">
+            Before the city exhales, the air turns cool and clear. This is your pause. The fragrance
+            opens with pear dew and bergamot, settles into lily stem and sun-warmed linen, and lingers
+            with mineral amber. A quiet ceremony to begin again.
+          </p>
+          <a class="cta" href="#quiz">Choose your scent path.</a>
+        </div>
+      </section>
+
+      <section class="section reveal" id="quiz">
+        <h2 class="section-title">Choose Your Scent Path</h2>
+        <form class="quiz" aria-describedby="ritual-result">
+          <div class="quiz-option">
+            <input type="radio" id="meditation" name="morning" value="Meditation" />
+            <label for="meditation">Meditation</label>
+          </div>
+          <div class="quiz-option">
+            <input type="radio" id="journaling" name="morning" value="Journaling" />
+            <label for="journaling">Journaling</label>
+          </div>
+          <div class="quiz-option">
+            <input type="radio" id="movement" name="morning" value="Movement" />
+            <label for="movement">Movement</label>
+          </div>
+          <div class="quiz-option">
+            <input type="radio" id="meeting" name="morning" value="Big Meeting" />
+            <label for="meeting">Stepping into a Big Meeting</label>
+          </div>
+          <button class="quiz-btn" type="button">Reveal My Ritual</button>
+          <p class="quiz-result" id="ritual-result" aria-live="polite"></p>
+        </form>
+      </section>
+
       <section class="notes" id="notes">
-        <div class="notes-inner">
+        <div class="notes-inner reveal">
           <div class="note">
             <h3>At the first inhale</h3>
             <p>pear dew, bergamot zest, cold spring air</p>
@@ -60,6 +109,24 @@
           <div class="note">
             <h3>In the dry-down</h3>
             <p>pale woods, mineral amber, skin musk</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section product" id="product">
+        <div class="product-panel reveal">
+          <div class="product-copy">
+            <p class="eyebrow">Make it yours</p>
+            <h2 class="section-title">Rising at Dawn</h2>
+            <p class="body">
+              Engrave your name or a morning mantra to make this ritual yours. We will wrap it in
+              soft linen and deliver it before the next sunrise.
+            </p>
+          </div>
+          <div class="product-actions">
+            <img src="perfume-placeholder.png" alt="Rising at Dawn perfume" />
+            <input type="text" placeholder="Engrave your name or phrase" />
+            <button class="quiz-btn" type="button">Add to Cart</button>
           </div>
         </div>
       </section>
