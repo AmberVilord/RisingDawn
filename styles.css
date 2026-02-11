@@ -37,14 +37,6 @@ main {
   scroll-margin-top: calc(var(--banner-height) + 1.5rem);
 }
 
-.anchor-spacer {
-  display: block;
-  position: relative;
-  top: calc(-1 * var(--anchor-offset, 0px));
-  height: 0;
-  pointer-events: none;
-}
-
 a,
 button {
   transition: color var(--transition), background var(--transition), border-color var(--transition),
@@ -751,17 +743,50 @@ body.theme-dark .toggle-dot::after {
   font-size: 0.95rem;
 }
 
+#ritual,
+#ritual-box {
+  scroll-margin-top: var(--anchor-offset-ritual, calc(var(--banner-height) + 12px));
+}
+
+#engrave {
+  scroll-margin-top: var(--anchor-offset-customize, calc(var(--banner-height) + 12px));
+}
+
 .quiz-btn {
   padding: 0.85rem 1.8rem;
   border-radius: 999px;
-  border: none;
-  background: var(--cta-bg);
-  color: var(--cta-text);
+  border: 1px solid rgba(217, 182, 113, 0.6);
+  background: rgba(247, 244, 239, 0.9);
+  color: #1f1c1a;
   font-size: 0.75rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   cursor: pointer;
   justify-self: center;
+  box-shadow: 0 12px 24px rgba(18, 16, 14, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.quiz-btn::before {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border-radius: inherit;
+  border: 1px solid rgba(255, 236, 194, 0.4);
+  pointer-events: none;
+}
+
+.quiz-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 30px rgba(18, 16, 14, 0.2);
+}
+
+.quiz-btn.btn-added {
+  background: rgba(222, 216, 209, 0.85);
+  color: var(--text-main);
+  border: 1px solid rgba(217, 182, 113, 0.7);
+  box-shadow: inset 0 0 0 1px rgba(255, 236, 194, 0.35);
 }
 
 .quiz-result {

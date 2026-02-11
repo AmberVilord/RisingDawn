@@ -22,8 +22,10 @@ if (introSection && window.location.hash) {
 const updateAnchorOffset = () => {
   if (!banner) return;
   const bannerHeight = banner.getBoundingClientRect().height;
-  const offset = bannerHeight + 12;
-  document.documentElement.style.setProperty("--anchor-offset", `${offset}px`);
+  const ritualOffset = bannerHeight + 108;
+  const customizeOffset = bannerHeight + 216;
+  document.documentElement.style.setProperty("--anchor-offset-ritual", `${ritualOffset}px`);
+  document.documentElement.style.setProperty("--anchor-offset-customize", `${customizeOffset}px`);
 };
 
 updateAnchorOffset();
@@ -214,6 +216,7 @@ if (addToCartButtons.length) {
       renderBag();
       const newLabel = button.dataset.changeText || "Added to Bag";
       button.textContent = newLabel;
+      button.classList.add("btn-added");
     });
   });
 }
