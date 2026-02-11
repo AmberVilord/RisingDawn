@@ -12,6 +12,12 @@ const addToCartButtons = Array.from(document.querySelectorAll(".add-to-cart"));
 const bagItemsContainer = document.querySelector("#bag-items");
 const bagTotal = document.querySelector("#bag-total");
 
+const introSection = document.querySelector("#intro");
+if (introSection && window.location.hash === "#story") {
+  body.classList.remove("intro-active");
+  body.classList.add("intro-dismissed");
+}
+
 const setTheme = (theme) => {
   body.classList.remove("theme-light", "theme-dark");
   body.classList.add(theme);
@@ -182,23 +188,21 @@ if (addToCartButtons.length) {
       const basePrice = Number(button.dataset.basePrice || "0");
       const useEngraving = button.dataset.useEngraving === "true";
       const engraving = useEngraving && engravingInput ? engravingInput.value.trim() : "";
-      const engravingFee = engraving ? 35 : 0;
-      const detail = engraving
-        ? `Custom engraving: ${engraving}`
+      const detail = useEngraving
+        ? `Custom engraving: ${engraving || "Not specified"}`
         : button.dataset.productDetail || "Signature ritual set";
       const item = {
         id: button.dataset.productId || "custom-item",
         name,
         detail,
-        price: basePrice + engravingFee,
+        price: useEngraving ? 156 : basePrice,
       };
       const items = loadCart();
       items.push(item);
       saveCart(items);
       renderBag();
-      if (button.dataset.changeText) {
-        button.textContent = button.dataset.changeText;
-      }
+      const newLabel = button.dataset.changeText || "Added to Bag";
+      button.textContent = newLabel;
     });
   });
 }
