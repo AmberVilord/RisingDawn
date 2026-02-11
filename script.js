@@ -11,12 +11,23 @@ const engravingCount = document.querySelector(".engraving-count");
 const addToCartButtons = Array.from(document.querySelectorAll(".add-to-cart"));
 const bagItemsContainer = document.querySelector("#bag-items");
 const bagTotal = document.querySelector("#bag-total");
+const banner = document.querySelector(".banner");
 
 const introSection = document.querySelector("#intro");
 if (introSection && window.location.hash) {
   body.classList.remove("intro-active");
   body.classList.add("intro-dismissed");
 }
+
+const updateAnchorOffset = () => {
+  if (!banner) return;
+  const bannerHeight = banner.getBoundingClientRect().height;
+  const offset = bannerHeight + 12;
+  document.documentElement.style.setProperty("--anchor-offset", `${offset}px`);
+};
+
+updateAnchorOffset();
+window.addEventListener("resize", updateAnchorOffset);
 
 const setTheme = (theme) => {
   body.classList.remove("theme-light", "theme-dark");

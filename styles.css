@@ -1,5 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Work+Sans:wght@300;400;500&display=swap");
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 :root {
   --font-serif: "Cormorant Garamond", "Times New Roman", serif;
   --font-sans: "Work Sans", "Helvetica Neue", Arial, sans-serif;
@@ -34,7 +40,7 @@ main {
 .anchor-spacer {
   display: block;
   position: relative;
-  top: calc(-1 * (var(--banner-height) + 1in));
+  top: calc(-1 * var(--anchor-offset, 0px));
   height: 0;
   pointer-events: none;
 }
