@@ -12,6 +12,7 @@ const addToCartButtons = Array.from(document.querySelectorAll(".add-to-cart"));
 const bagItemsContainer = document.querySelector("#bag-items");
 const bagTotal = document.querySelector("#bag-total");
 const banner = document.querySelector(".banner");
+const navBag = document.querySelector(".nav-bag");
 
 const introSection = document.querySelector("#intro");
 if (introSection && window.location.hash) {
@@ -82,10 +83,30 @@ const saveCart = (items) => {
   window.localStorage.setItem(CART_KEY, JSON.stringify(items));
 };
 
+const updateBagCount = () => {
+  if (!navBag) return;
+  const items = loadCart();
+  const count = items.length;
+  let badge = navBag.querySelector(".bag-count");
+  if (!badge) {
+    badge = document.createElement("span");
+    badge.className = "bag-count";
+    navBag.appendChild(badge);
+  }
+  if (count <= 0) {
+    badge.textContent = "";
+    badge.classList.remove("is-visible");
+    return;
+  }
+  badge.textContent = String(count);
+  badge.classList.add("is-visible");
+};
+
 const renderBag = () => {
   if (!bagItemsContainer || !bagTotal) return;
   const items = loadCart();
   bagItemsContainer.innerHTML = "";
+  updateBagCount();
   if (!items.length) {
     const empty = document.createElement("div");
     empty.className = "bag-empty";
@@ -216,6 +237,7 @@ if (addToCartButtons.length) {
       items.push(item);
       saveCart(items);
       renderBag();
+      updateBagCount();
       const newLabel = button.dataset.changeText || "Added to Bag";
       button.textContent = newLabel;
       button.classList.add("btn-added");
@@ -224,3 +246,4 @@ if (addToCartButtons.length) {
 }
 
 renderBag();
+updateBagCount();
