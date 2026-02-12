@@ -624,12 +624,19 @@ body.theme-dark .toggle-dot::after {
   color: #f7f4ef;
 }
 
-.ritual-grid {
+.ritual-layout {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.8rem;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 2rem;
+  align-items: center;
   max-width: 1100px;
   margin: 0 auto;
+}
+
+.ritual-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(200px, 1fr));
+  gap: 1.8rem;
 }
 
 .ritual-card {
@@ -697,6 +704,20 @@ body.theme-dark .toggle-dot::after {
 
 .ritual-sparkle:hover::after {
   opacity: 0.5;
+}
+
+@media (max-width: 900px) {
+  .ritual-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .ritual-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .scent-hero {
+    margin: 0 auto 1.5rem;
+  }
 }
 
 .reveal {
@@ -807,17 +828,17 @@ body.theme-dark .toggle-dot::after {
 }
 
 .scent-hero {
-  width: min(1100px, var(--content-max-width));
-  margin: 2.5rem auto 0;
-  padding: 0 0.5rem;
+  width: min(260px, 25vw);
+  margin: 0;
+  padding: 0;
 }
 
 .scent-hero img {
   width: 100%;
   height: auto;
-  border-radius: 1.2rem;
+  border-radius: 1rem;
   border: 1px solid rgba(217, 182, 113, 0.7);
-  box-shadow: 0 24px 60px rgba(18, 16, 14, 0.2);
+  box-shadow: 0 18px 36px rgba(18, 16, 14, 0.2);
   display: block;
 }
 
@@ -1296,6 +1317,36 @@ body.theme-dark .toggle-dot::after {
   max-width: 720px;
 }
 
+.fund-hero-title {
+  font-size: clamp(1.68rem, 2.1vw + 0.84rem, 3.15rem);
+}
+
+.impact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-decoration: none;
+  margin-bottom: 1rem;
+}
+
+.impact-link:hover {
+  color: var(--text-main);
+}
+
+.fund-impact-link {
+  padding-top: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.impact-link-btn {
+  text-decoration: none;
+}
+
 .fund-lead {
   font-size: 1.05rem;
 }
@@ -1345,6 +1396,20 @@ body.theme-dark .toggle-dot::after {
 
 .fund-impact-copy .section-title {
   text-align: left;
+}
+
+.fund-left .body {
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.fund-story .body {
+  margin-bottom: 0.8rem;
+}
+
+.fund-story .body + .body {
+  margin-top: 0.4rem;
 }
 
 .fund-impact-highlight {
@@ -1437,6 +1502,70 @@ body.theme-dark .toggle-dot::after {
   margin-top: 1.5rem;
 }
 
+.impact-hero {
+  padding: 5rem 0 2rem;
+}
+
+.impact-shell {
+  width: min(1100px, var(--content-max-width));
+  margin: 0 auto;
+}
+
+.impact-title {
+  margin-bottom: 0.8rem;
+}
+
+.impact-lede {
+  max-width: 46rem;
+}
+
+.impact-section {
+  padding: 2rem 0 5rem;
+}
+
+.impact-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.impact-card {
+  border: 1px solid rgba(217, 182, 113, 0.75);
+  padding: 1.8rem;
+  background: transparent;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.impact-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 1rem;
+  border: 1px solid rgba(217, 182, 113, 0.4);
+}
+
+.impact-card h2 {
+  margin: 0;
+  font-family: var(--font-serif);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.impact-role {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
+
+.impact-quote {
+  margin: 0;
+  line-height: 1.7;
+}
+
 @media (max-width: 900px) {
   .fund-hero {
     padding: 4.5rem 0 3rem;
@@ -1452,6 +1581,10 @@ body.theme-dark .toggle-dot::after {
 
   .fund-impact-copy .section-title {
     text-align: center;
+  }
+
+  .fund-left .body {
+    text-align: left;
   }
 }
 

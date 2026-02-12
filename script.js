@@ -175,7 +175,8 @@ if (quizButton && quizResult) {
       ritualPanelCopy.textContent = "Your ritual flow is ready. Follow the order below.";
     }
     resetRitualList();
-    plan.order.forEach((key, index) => {
+    const normalizedOrder = ["body-wash", ...plan.order.filter((key) => key !== "body-wash")];
+    normalizedOrder.forEach((key, index) => {
       const item = ritualListItems.find((node) => node.dataset.product === key);
       if (item) {
         item.classList.add("is-active");
