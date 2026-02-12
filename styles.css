@@ -221,6 +221,9 @@ body.theme-dark {
   letter-spacing: 0.35em;
   text-decoration: none;
   color: var(--text-main);
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
 }
 
 .logo:hover {
@@ -254,7 +257,7 @@ body.theme-dark {
 
 .nav {
   display: flex;
-  gap: 2rem;
+  gap: 0.6rem 1rem;
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -283,6 +286,17 @@ body.theme-dark {
 
 .nav a:hover {
   opacity: 0.7;
+}
+
+.nav-feature {
+  flex-basis: 100%;
+  text-align: center;
+  letter-spacing: 0.3em;
+  font-size: 0.75rem;
+  color: #d9b671;
+  text-shadow: 0 0 14px rgba(217, 182, 113, 0.95), 0 0 30px rgba(217, 182, 113, 0.8),
+    0 0 48px rgba(217, 182, 113, 0.65), 0 0 72px rgba(217, 182, 113, 0.45);
+  margin-top: 0.1rem;
 }
 
 .theme-toggle {
@@ -506,11 +520,38 @@ body.theme-dark .toggle-dot::after {
 
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(4, minmax(220px, 1fr));
   gap: 16px;
   max-width: 1100px;
   margin: 0 auto;
   justify-content: center;
+}
+
+@media (max-width: 1100px) {
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+  }
+
+  .product-feature {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 640px) {
+  .product-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .product-feature {
+    grid-column: span 1;
+  }
+}
+
+.section-lede {
+  max-width: 48rem;
+  margin: 0 auto 2.5rem;
+  text-align: center;
+  color: var(--text-muted);
 }
 
 .product-card {
@@ -524,6 +565,31 @@ body.theme-dark .toggle-dot::after {
   position: relative;
   overflow: hidden;
 }
+
+.product-feature {
+  border-color: rgba(217, 182, 113, 0.7);
+  box-shadow: 0 18px 32px rgba(18, 16, 14, 0.12);
+  grid-column: span 2;
+}
+
+.product-feature-body {
+  display: grid;
+  grid-template-columns: minmax(0, 220px) minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.product-feature-body img {
+  width: 100%;
+  max-width: 220px;
+  justify-self: start;
+}
+
+.product-feature-copy {
+  display: grid;
+  gap: 0.75rem;
+}
+
 
 .product-card h3 {
   font-family: var(--font-serif);
@@ -646,6 +712,11 @@ body.theme-dark .toggle-dot::after {
   position: relative;
   overflow: hidden;
   min-height: 220px;
+}
+
+.ritual-circadian {
+  border-color: rgba(217, 182, 113, 0.7);
+  box-shadow: 0 18px 32px rgba(18, 16, 14, 0.12);
 }
 
 .ritual-card h3 {
@@ -879,6 +950,7 @@ body.theme-dark .toggle-dot::after {
   transition: background var(--transition), color var(--transition), border-color var(--transition);
 }
 
+
 .ritual-list li::before {
   content: attr(data-order);
   display: inline-flex;
@@ -1008,6 +1080,13 @@ body.theme-dark .toggle-dot::after {
   gap: 1rem;
 }
 
+.shop-feature {
+  border-color: rgba(217, 182, 113, 0.7);
+  box-shadow: 0 18px 32px rgba(18, 16, 14, 0.12);
+  position: relative;
+}
+
+
 .shop-card img {
   width: 100%;
   height: 220px;
@@ -1026,6 +1105,130 @@ body.theme-dark .toggle-dot::after {
 .shop-card p {
   margin: 0;
   color: var(--text-muted);
+}
+
+.shop-card .quiz-btn {
+  width: 100%;
+  justify-self: stretch;
+  text-align: center;
+}
+
+.shop-detail {
+  color: var(--text-main);
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.circadian-hero {
+  padding-top: 6rem;
+}
+
+.circadian-shell {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 3rem;
+  align-items: center;
+}
+
+.circadian-copy .headline {
+  margin-bottom: 1rem;
+}
+
+.circadian-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.circadian-price {
+  font-size: 0.95rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-main);
+}
+
+.circadian-image {
+  display: flex;
+  justify-content: center;
+}
+
+.circadian-image img {
+  width: min(360px, 100%);
+  border-radius: 0.75rem;
+  border: 1px solid var(--panel-border);
+  box-shadow: 0 24px 40px rgba(18, 16, 14, 0.2);
+}
+
+.circadian-how {
+  padding-top: 2rem;
+}
+
+.circadian-how .circadian-shell {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: start;
+}
+
+.circadian-how-copy {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.circadian-how-cards {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.circadian-card {
+  padding: 1.6rem;
+  border: 1px solid var(--panel-border);
+  background: var(--panel-bg);
+}
+
+.circadian-card h3 {
+  margin: 0 0 0.6rem;
+  font-family: var(--font-serif);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+.circadian-card p {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.circadian-how .quiz-btn {
+  justify-self: start;
+}
+
+@media (max-width: 900px) {
+  .circadian-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .circadian-image {
+    order: -1;
+  }
+}
+
+.shop-ribbon {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  padding: 0.35rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid rgba(217, 182, 113, 0.7);
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--text-main);
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
 }
 
 .shop-card .shop-price {

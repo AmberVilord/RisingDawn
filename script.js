@@ -172,7 +172,8 @@ if (quizButton && quizResult) {
     }
     quizResult.textContent = plan.story;
     if (ritualPanelCopy) {
-      ritualPanelCopy.textContent = "Your ritual flow is ready. Follow the order below.";
+      ritualPanelCopy.textContent =
+        "Your ritual flow is ready. Follow the order below, including Circadian fregrence or Rising at Dawn Perfume.";
     }
     resetRitualList();
     const normalizedOrder = ["body-wash", ...plan.order.filter((key) => key !== "body-wash")];
