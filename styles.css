@@ -388,9 +388,8 @@ body.theme-dark .toggle-dot::after {
   max-width: 56rem;
   margin: 0 auto 1.5rem;
   padding: 2rem;
-  border: 1px solid rgba(217, 182, 113, 0.75);
-  box-shadow: inset 0 0 0 1px rgba(255, 236, 194, 0.35), 0 12px 30px rgba(18, 16, 14, 0.08);
-  background: rgba(222, 216, 209, 0.65);
+  border: 1px solid rgba(217, 182, 113, 0.9);
+  background: transparent;
   text-align: left;
   display: flex;
   align-items: center;
@@ -460,8 +459,8 @@ body.theme-dark .toggle-dot::after {
 
 .story-box {
   padding: 1.5rem 1.8rem;
-  border: 1px solid rgba(217, 182, 113, 0.75);
-  background: rgba(207, 199, 191, 0.55);
+  border: 1px solid rgba(217, 182, 113, 0.9);
+  background: transparent;
   margin: 0 auto 1.5rem;
   max-width: 40rem;
 }
